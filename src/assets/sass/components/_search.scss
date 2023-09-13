@@ -1,0 +1,25 @@
+.search-form{
+    height: 4.8rem;
+    width: 50rem;
+    font-size: 1.6rem;
+
+    &__input{
+        width: 88%;
+        outline: none;
+        border: 1px solid $color-black;
+        border-right: none;
+        height: 100%;
+        padding: 1rem;
+        font-size: inherit;
+        border-radius: 8px 0px 0px 8px;
+    }
+
+    &__button{
+        width: 12%;
+        height: 100%;
+        font-size: inherit;
+        border: 1px solid $color-black;
+        border-left: none;
+        border-radius: 0px 8px 8px 0px;
+    }
+}
