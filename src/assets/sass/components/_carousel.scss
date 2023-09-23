@@ -1,0 +1,32 @@
+.swiper-slide{
+    width: auto !important;
+}
+
+img, svg{
+    display: block;
+    max-width: 100%;;
+}
+
+.carousel-container{
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+}
+
+.rightNavigation{
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.leftNavigation{
+    cursor: pointer;
+    position: absolute;
+    left: 0px;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}

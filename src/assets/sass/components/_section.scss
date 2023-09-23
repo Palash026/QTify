@@ -1,0 +1,22 @@
+.section{
+    padding: 4rem;
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .wrapper{
+        font-size: 1.4rem;
+        display: flex;
+        gap: 4rem;
+        flex-wrap: wrap;
+    }
+
+    .toggleText{
+        color: $color-primary;
+        cursor: pointer;
+    }
+}
