@@ -5,7 +5,7 @@ const Card = ({ data, type }) => {
     const getCard = (type) => {
         switch(type){
             case 'album': {
-                const {image, follows, title, songs} = data;
+                const {image, follows, title} = data;
                 return (
                     <div className="box">
                         <div className="card">
