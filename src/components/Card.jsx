@@ -11,7 +11,7 @@ const Card = ({ data, type }) => {
                         <div className="card">
                             <img src={image} alt="album" />
                             <div className="banner">
-                                <Chip className='chip' label={`${follows}`} />
+                                <Chip className='chip' label={`${follows} follows`} />
                             </div>
                         </div>
                         <div className="titleWrapper">

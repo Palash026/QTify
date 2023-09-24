@@ -9,7 +9,8 @@ const CarouselRightNavigation = () => {
     swiper.on("slideChange", function(){
       setIsEnd(swiper.isEnd);
     })
-  },[])
+  },[swiper])
+
   return (
     <div className='rightNavigation'>
       {!isEnd && <RightNavigation onClick={() => swiper.slideNext()}/>}

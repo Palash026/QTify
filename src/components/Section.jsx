@@ -22,9 +22,9 @@ const Section = ({title, data}) => {
         <div className="wrapper">
           {
             carouselToggle ? (
-              <p>
+              <>
                 <Carousel data={data} componentRender={(ele) => <Card data={ele} type="album"/>}/>
-              </p>
+              </>
             ):(
               <>
                 {data.map((item) => (

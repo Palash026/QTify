@@ -2,13 +2,8 @@
     width: auto !important;
 }
 
-img, svg{
-    display: block;
-    max-width: 100%;;
-}
-
 .carousel-container{
-    width: 90%;
+    width: 100%;
     position: relative;
     overflow: hidden;
 }
@@ -19,7 +14,7 @@ img, svg{
     right: 10px;
     top: 40%;
     transform: translateY(-50%);
-    z-index: 1000;
+    z-index: 10;
 }
 
 .leftNavigation{
@@ -28,5 +23,5 @@ img, svg{
     left: 0px;
     top: 40%;
     transform: translateY(-50%);
-    z-index: 1000;
+    z-index: 10;
 }
