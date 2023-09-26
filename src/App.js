@@ -1,30 +1,36 @@
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
-import { fetchAlbums } from "./api/api";
+import { fetchTopAlbums, fetchNewAlbums } from "./api/api";
 import { useEffect, useState } from "react";
 import Section from "./components/Section";
+import BasicTabs from "./components/TabPanel";
 
 function App() {
   const [topAlbums, setTopAlbums] = useState([]);
+  const [newAlbums, setNewAlbums] = useState([]);
+
   const generateData = async () => {
-    try{
-      const data = await fetchAlbums();
-      setTopAlbums(data);
-    }catch(err){
+    try {
+      const topAlbums = await fetchTopAlbums();
+      const newAlbums = await fetchNewAlbums();
+      setTopAlbums(topAlbums);
+      setNewAlbums(newAlbums);
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   useEffect(() => {
     generateData();
-  },[]);
-
+  }, []);
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Hero />
-      <Section title={"Top albums"} data={topAlbums}/>
+      <Section title={"Top albums"} data={topAlbums} />
+      <Section title={"New albums"} data={newAlbums} />
+      <BasicTabs title="Songs"/>
     </div>
   );
 }
