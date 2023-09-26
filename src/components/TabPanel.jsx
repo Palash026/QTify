@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Divider } from "@mui/material";
+import Carousel from "./Carousel";
+import Card from "./Card";
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -17,11 +18,7 @@ const TabPanel = (props) => {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <>{children}</>}
     </div>
   );
 };
@@ -39,7 +36,7 @@ function a11yProps(index) {
   };
 }
 
-function BasicTabs({ title }) {
+function BasicTabs({ title, data, filterCallback }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -48,24 +45,24 @@ function BasicTabs({ title }) {
 
   return (
     <>
-      <Divider sx={{ borderColor: '#34C94B'}}/>
-      <Box sx={{ width: "100%" }} className="section">
-        <div className="header">
-          <h3>{title}</h3>
-        </div>
-        <Box>
+      <Divider sx={{ borderColor: "#34C94B" }} />
+      <Box sx={{ width: "100%" }}>
+        <Box className="section">
+          <div className="header">
+            <h3>{title}</h3>
+          </div>
           <Tabs
             value={value}
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab label="Item One" {...a11yProps(0)} className="tab"/>
-            <Tab label="Item Two" {...a11yProps(1)} className="tab"/>
-            <Tab label="Item Three" {...a11yProps(2)} className="tab"/>
+            <Tab label="All" {...a11yProps(0)} />
+            <Tab label="Item Two" {...a11yProps(1)} />
+            <Tab label="Item Three" {...a11yProps(2)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          Item One
+          <Carousel data={data} componentRender={(ele) => <Card data={ele} type="album"/>} />
         </TabPanel>
         <TabPanel value={value} index={1}>
           Item Two
@@ -74,7 +71,7 @@ function BasicTabs({ title }) {
           Item Three
         </TabPanel>
       </Box>
-      <Divider sx={{ borderColor: '#34C94B'}}/>
+      <Divider sx={{ borderColor: "#34C94B" }} />
     </>
   );
 }
