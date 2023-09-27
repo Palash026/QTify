@@ -20,6 +20,22 @@ const Card = ({ data, type }) => {
                     </div>
                 )
             }
+            case 'songs': {
+                const {image, likes, title} = data;
+                return (
+                    <div className="box">
+                        <div className="card">
+                            <img src={image} alt="song" />
+                            <div className="banner">
+                                <Chip className='chip' label={`${likes} Likes`} />
+                            </div>
+                        </div>
+                        <div className="titleWrapper">
+                            {title}
+                        </div>
+                    </div>
+                )
+            }
             default: 
                 return <></>
         }

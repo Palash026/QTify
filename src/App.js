@@ -23,6 +23,16 @@ function App() {
     }
   };
 
+  const filter = (query, data) => {
+    query = query.toLowerCase();
+    return query === 'all'
+      ? data
+      : data.filter((song) => song.genre.key.toLowerCase() === query);
+  };
+  
+
+  const tabs = ['All', 'Rock', 'Pop', 'Jazz', 'Blues']
+
   useEffect(() => {
     generateData();
   }, []);
@@ -33,7 +43,7 @@ function App() {
       <Hero />
       <Section title={"Top albums"} data={topAlbums} />
       <Section title={"New albums"} data={newAlbums} />
-      <BasicTabs title="Songs" data={allSongs}/>
+      <BasicTabs title="Songs" tabs={tabs} filterCallback={filter} data={allSongs}/>
     </div>
   );
 }
