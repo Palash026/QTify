@@ -36,7 +36,7 @@ function a11yProps(index) {
   };
 }
 
-function BasicTabs({ title, data, filterCallback }) {
+function BasicTabs({ title, data, filterCallback , tabs}) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -56,20 +56,14 @@ function BasicTabs({ title, data, filterCallback }) {
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab label="All" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-            <Tab label="Item Three" {...a11yProps(2)} />
+            {tabs.map((tab, index) => <Tab label={tab} {...a11yProps(index)} />)}
           </Tabs>
         </Box>
-        <TabPanel value={value} index={0}>
-          <Carousel data={data} componentRender={(ele) => <Card data={ele} type="album"/>} />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          Item Two
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          Item Three
-        </TabPanel>
+        {tabs.map((tab, index) => (
+          <TabPanel key={`song-tab-${index}`} value={value} index={index}>
+            <Carousel data={filterCallback(tab, data)} componentRender={(ele) => <Card data={ele} type="songs"/>} />
+          </TabPanel>
+        ))}
       </Box>
       <Divider sx={{ borderColor: "#34C94B" }} />
     </>
