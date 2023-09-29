@@ -9,7 +9,7 @@ const CarouselLeftNavigation = () => {
     swiper.on("slideChange", function(){
       setIsBegining(swiper.isBeginning);
     })
-  },[swiper])
+  },[swiper]);
 
   return (
     <div className='leftNavigation'>
