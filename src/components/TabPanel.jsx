@@ -65,7 +65,7 @@ function BasicTabs({ title, data, filterCallback , tabs}) {
           </TabPanel>
         ))}
       </Box>
-      <Divider sx={{ borderColor: "#34C94B" }} />
+      <Divider sx={{ borderColor: "#34C94B", marginTop: '50px' }} />
     </>
   );
 }

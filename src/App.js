@@ -4,6 +4,7 @@ import { fetchTopAlbums, fetchNewAlbums, fetchSongs } from "./api/api";
 import { useEffect, useState } from "react";
 import Section from "./components/Section";
 import BasicTabs from "./components/TabPanel";
+import FAQs from "./components/FAQs";
 
 function App() {
   const [topAlbums, setTopAlbums] = useState([]);
@@ -44,6 +45,7 @@ function App() {
       <Section title={"Top albums"} data={topAlbums} />
       <Section title={"New albums"} data={newAlbums} />
       <BasicTabs title="Songs" tabs={tabs} filterCallback={filter} data={allSongs}/>
+      <FAQs/>
     </div>
   );
 }
